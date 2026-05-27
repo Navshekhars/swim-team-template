@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swim Team Season Calendar – Free Template</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #EBF8FF; min-height: 100vh; }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(160deg, #0A7EA4 0%, #0D9DB5 40%, #48CAE4 100%);
+    color: white;
+    padding: 2rem 1.25rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: #EBF8FF;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  /* pool lane lines */
+  .header::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -10%; right: -10%; bottom: 0;
+    background: repeating-linear-gradient(
+      100deg,
+      transparent,
+      transparent 18%,
+      rgba(255,255,255,0.07) 18%,
+      rgba(255,255,255,0.07) 20%
+    );
+    pointer-events: none;
+  }
+  .header h1 { font-size: 23px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.5px; position: relative; z-index: 1; text-shadow: 0 1px 8px rgba(0,0,0,0.15); }
+  .header p { font-size: 13px; opacity: 0.92; line-height: 1.6; position: relative; z-index: 1; }
+
+  /* ── BUNTING ── */
+  .bunting-wrap {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 14px;
+    width: 100%;
+  }
+
+  /* ── TEMPLATE BANNER ── */
+  .template-banner { background: #fffbeb; border-bottom: 2px dashed #fbbf24; padding: 10px 16px; text-align: center; font-size: 12px; color: #92400e; line-height: 1.6; }
+  .template-banner strong { color: #78350f; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 520px; margin: 0 auto; padding: 1.25rem; }
+  .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #0A7EA4; margin: 1.5rem 0 0.75rem; }
+
+  /* ── MEET CARDS ── */
+  .card { background: white; border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(10,126,164,0.10); display: flex; align-items: center; gap: 12px; border-left: 3px solid #48CAE4; }
+  .date-box { text-align: center; min-width: 44px; flex-shrink: 0; }
+  .date-mo { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #0A7EA4; }
+  .date-d { font-size: 24px; font-weight: 700; color: #111; line-height: 1; }
+  .divider { width: 1px; height: 44px; background: #e0f7fa; flex-shrink: 0; }
+  .info { flex: 1; min-width: 0; }
+  .info-title { font-size: 13px; font-weight: 600; color: #111; line-height: 1.3; }
+  .info-meta { font-size: 11px; color: #6b7280; margin-top: 3px; line-height: 1.4; }
+  .placeholder { color: #9ca3af; font-style: italic; }
+  .badge { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 20px; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .badge.home { background: #e0f7fa; color: #0A7EA4; }
+  .badge.away { background: #fee2e2; color: #991b1b; }
+  .badge.champ { background: #ede9fe; color: #4c1d95; }
+  .add-btn { flex-shrink: 0; background: linear-gradient(135deg, #0A7EA4, #0D9DB5); color: white; border: none; border-radius: 8px; padding: 8px 13px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .add-btn:hover { background: linear-gradient(135deg, #085f7a, #0A7EA4); }
+
+  /* ── PRACTICE ── */
+  .info-box { background: white; border-radius: 14px; padding: 1.1rem; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(10,126,164,0.10); border-left: 3px solid #48CAE4; }
+  .prac-row { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 1px solid #e0f7fa; }
+  .prac-row:last-child { border-bottom: none; }
+  .prac-group { font-weight: 500; color: #374151; }
+  .prac-time { color: #6b7280; font-style: italic; }
+  .phase-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0A7EA4; margin: 10px 0 4px; }
+  .note { background: #e0f7fa; border-radius: 10px; padding: 10px 12px; font-size: 11px; color: #0A7EA4; line-height: 1.7; margin-top: 10px; }
+
+  /* ── MEET 101 ── */
+  .meet101 { background: white; border-radius: 14px; padding: 1.1rem; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(10,126,164,0.10); border-left: 3px solid #48CAE4; }
+  .meet101 h3 { font-size: 13px; font-weight: 700; color: #0A7EA4; margin-bottom: 10px; }
+  .meet101 ul { padding-left: 16px; }
+  .meet101 li { font-size: 12px; color: #374151; padding: 3px 0; line-height: 1.5; }
+  .meet101 .tips { margin-top: 10px; font-size: 12px; color: #374151; line-height: 1.7; }
+
+  /* ── BLOOM FOOTER ── */
+  .bloom-credit {
+    background: linear-gradient(160deg, #0A7EA4 0%, #0D9DB5 50%, #48CAE4 100%);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .bloom-credit::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 30px;
+    background: #EBF8FF;
+    clip-path: ellipse(55% 100% at 50% 0%);
+  }
+  /* pool lane lines on footer */
+  .bloom-credit::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -10%; right: -10%; bottom: 0;
+    background: repeating-linear-gradient(
+      100deg,
+      transparent,
+      transparent 18%,
+      rgba(255,255,255,0.06) 18%,
+      rgba(255,255,255,0.06) 20%
+    );
+    pointer-events: none;
+  }
+  .bloom-inner { position: relative; z-index: 1; padding-top: 10px; }
+  .bloom-name { font-size: 17px; font-weight: 800; letter-spacing: -0.3px; }
+  .bloom-tag { font-size: 12px; opacity: 0.85; font-style: italic; margin-top: 2px; }
+  .bloom-credit p { font-size: 12px; opacity: 0.9; line-height: 1.9; margin-top: 8px; }
+  .bloom-credit a { color: #FFD166; font-weight: 600; text-decoration: none; }
+  .footer-bunting-wrap {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="bunting-wrap">
+    <svg viewBox="0 0 340 36" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block">
+      <line x1="0" y1="4" x2="340" y2="4" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+      <polygon points="14,4 28,4 21,22" fill="#FFD166"/>
+      <polygon points="44,4 58,4 51,22" fill="#9B8EC4"/>
+      <polygon points="74,4 88,4 81,22" fill="#FAFAFA"/>
+      <polygon points="104,4 118,4 111,22" fill="#E84855"/>
+      <polygon points="134,4 148,4 141,22" fill="#F6A623"/>
+      <polygon points="164,4 178,4 171,22" fill="#4A6CF7"/>
+      <polygon points="194,4 208,4 201,22" fill="#FAFAFA"/>
+      <polygon points="224,4 238,4 231,22" fill="#E84855"/>
+      <polygon points="254,4 268,4 261,22" fill="#9B8EC4"/>
+      <polygon points="284,4 298,4 291,22" fill="#FFD166"/>
+      <polygon points="314,4 328,4 321,22" fill="#F6A623"/>
+    </svg>
+  </div>
+  <h1>🌊 [Your Team Name] [Year]</h1>
+  <p>Tap any meet below to add it directly<br>to your Google Calendar!</p>
+</div>
+
+<div class="template-banner">
+  <strong>📋 Free Template for Swim Team Organizers</strong><br>
+  Replace all placeholder text in [brackets] with your team's details.<br>
+  Add your Google Calendar links to activate the + Add buttons.
+</div>
+
+<div class="container">
+
+  <div class="section-title">🏊 Swim Meets</div>
+
+  <div class="card">
+    <div class="date-box"><div class="date-mo placeholder">[Mon]</div><div class="date-d placeholder">00</div></div>
+    <div class="divider"></div>
+    <div class="info">
+      <div class="info-title">[Home Team] vs [Your Team]</div>
+      <div class="info-meta">Arrive [time] · Start [time]<br><span class="placeholder">[Pool Name · Address]</span></div>
+      <span class="badge home">Home meet</span>
+    </div>
+    <a class="add-btn" href="#">+ Add</a>
+  </div>
+
+  <div class="card">
+    <div class="date-box"><div class="date-mo placeholder">[Mon]</div><div class="date-d placeholder">00</div></div>
+    <div class="divider"></div>
+    <div class="info">
+      <div class="info-title">[Your Team] @ [Away Team]</div>
+      <div class="info-meta">Arrive [time] · Start [time]<br><span class="placeholder">[Pool Name · Address]</span></div>
+      <span class="badge away">Away meet</span>
+    </div>
+    <a class="add-btn" href="#">+ Add</a>
+  </div>
+
+  <div class="card">
+    <div class="date-box"><div class="date-mo placeholder">[Mon]</div><div class="date-d placeholder">00</div></div>
+    <div class="divider"></div>
+    <div class="info">
+      <div class="info-title">[Your Team] @ [Away Team]</div>
+      <div class="info-meta">Arrive [time] · Start [time]<br><span class="placeholder">[Pool Name · Address]</span></div>
+      <span class="badge away">Away meet</span>
+    </div>
+    <a class="add-btn" href="#">+ Add</a>
+  </div>
+
+  <div class="card">
+    <div class="date-box"><div class="date-mo placeholder">[Mon]</div><div class="date-d placeholder">00</div></div>
+    <div class="divider"></div>
+    <div class="info">
+      <div class="info-title">[Your Team] @ [Away Team]</div>
+      <div class="info-meta">Arrive [time] · Start [time]<br><span class="placeholder">[Pool Name · Address]</span></div>
+      <span class="badge away">Away meet</span>
+    </div>
+    <a class="add-btn" href="#">+ Add</a>
+  </div>
+
+  <div class="card">
+    <div class="date-box"><div class="date-mo placeholder">[Mon]</div><div class="date-d placeholder">00</div></div>
+    <div class="divider"></div>
+    <div class="info">
+      <div class="info-title">[Championship Name]</div>
+      <div class="info-meta">Arrive [time] · Start [time]<br><span class="placeholder">[Venue · Address]</span></div>
+      <span class="badge champ">Championship</span>
+    </div>
+    <a class="add-btn" href="#">+ Add</a>
+  </div>
+
+  <div class="section-title">⏰ Practice Schedule</div>
+
+  <div class="info-box">
+    <div class="phase-label">[Phase 1 Name · Date Range]</div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="phase-label">[Phase 2 Name · Date Range]</div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="phase-label">[Phase 3 Name · Date Range]</div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="prac-row"><span class="prac-group">[Age group]</span><span class="prac-time">[Time]</span></div>
+    <div class="note">
+      📍 All practices at [Pool Name · Address]<br>
+      ✉️ Questions? [Team Director · email]<br>
+      🙋 Volunteers: [Coordinator · email · phone]
+    </div>
+  </div>
+
+  <div class="section-title">📋 Meet Day Checklist</div>
+
+  <div class="meet101">
+    <h3>What to bring to every meet</h3>
+    <ul>
+      <li>Swim suit, team t-shirt, team cap &amp; goggles</li>
+      <li>At least 2 towels</li>
+      <li>Blanket or sleeping bag to sit on</li>
+      <li>Games, books or quiet activities</li>
+      <li>Snacks, water bottle &amp; cash for concessions</li>
+      <li>Lawn chair for parents</li>
+      <li>Sunscreen &amp; bug spray</li>
+    </ul>
+    <div class="tips">
+      ✏️ <strong>Meet day tip:</strong> Coaches write your swimmer's Event/Heat/Lane/Stroke on their arm at practice — please rewrite before arriving at the meet!<br><br>
+      👶 <strong>10 &amp; under:</strong> Check in with bullpen parent on arrival. Swimmers must be in bullpen 10 events before their race.<br><br>
+      🤒 <strong>Sick last minute?</strong> Call your team director ASAP so relay teams can be adjusted.<br><br>
+      🎀 <strong>Ribbons</strong> handed out at Friday practice. Improvement beads awarded from meet 2 onwards!
+    </div>
+  </div>
+
+</div>
+
+<div class="bloom-credit">
+  <div class="footer-bunting-wrap">
+    <svg viewBox="0 0 340 36" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block">
+      <line x1="0" y1="4" x2="340" y2="4" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+      <polygon points="14,4 28,4 21,22" fill="#F6A623"/>
+      <polygon points="44,4 58,4 51,22" fill="#FAFAFA"/>
+      <polygon points="74,4 88,4 81,22" fill="#E84855"/>
+      <polygon points="104,4 118,4 111,22" fill="#9B8EC4"/>
+      <polygon points="134,4 148,4 141,22" fill="#FFD166"/>
+      <polygon points="164,4 178,4 171,22" fill="#4A6CF7"/>
+      <polygon points="194,4 208,4 201,22" fill="#E84855"/>
+      <polygon points="224,4 238,4 231,22" fill="#FAFAFA"/>
+      <polygon points="254,4 268,4 261,22" fill="#FFD166"/>
+      <polygon points="284,4 298,4 291,22" fill="#9B8EC4"/>
+      <polygon points="314,4 328,4 321,22" fill="#F6A623"/>
+    </svg>
+  </div>
+  <div class="bloom-inner">
+    <div class="bloom-name">We've Bloomed</div>
+    <div class="bloom-tag">Bloom where you are planted</div>
+    <p>Free template by Navya · <a href="https://weavebloomed.substack.com" target="_blank">weavebloomed.substack.com</a> · Free to use &amp; customise · Built with Claude AI</p>
+  </div>
+</div>
+
+</body>
+</html>
